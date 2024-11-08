@@ -6,7 +6,7 @@ class GameScene extends Phaser.Scene {
     }
 
     init() {
-        this.speed = 100;
+        this.speed = 200;
         this.score = 0;
         this.lives = 3;
     }
@@ -23,7 +23,7 @@ class GameScene extends Phaser.Scene {
         this.bggame.displayHeight = 600;
 
         //Player
-        this.player = this.add.sprite(
+        this.player = this.physics.add.sprite(
             200,
             this.game.config.height / 2,
             'player'
@@ -34,7 +34,10 @@ class GameScene extends Phaser.Scene {
         this.D = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
     }
 
-    update() {
+    update(time, delta) {
+        this.player.setVelocity(0);
+        
+        // Texture change
         if(Phaser.Input.Keyboard.JustDown(this.W)) {
             this.player.setTexture('amarillo');
         }
@@ -46,6 +49,14 @@ class GameScene extends Phaser.Scene {
         }
         if(Phaser.Input.Keyboard.JustDown(this.D)) {
             this.player.setTexture('verde');
+        }
+
+        // Player Movement
+        if(this.W.isDown) {
+            this.player.body.setVelocityY(-this.speed);
+        }
+        if(this.S.isDown) {
+            this.player.body.setVelocityY(this.speed);
         }
     }
 }
