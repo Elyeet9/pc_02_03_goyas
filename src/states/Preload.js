@@ -8,9 +8,11 @@ class PreloadScene extends Phaser.Scene {
 
     preload() {
         this.load.image('bgmenu', 'assets/fondos/menu.png');
+        this.load.image('bggame', 'assets/fondos/game.png');
     }
-    
+
     create() {
+        console.log("Preload done, loading menu...");
         this.scene.start('MenuScene');
     }
 }

@@ -1,4 +1,5 @@
 import PreloadScene from "./states/Preload";
+import MenuScene from "./states/Menu"
 import GameScene from "./states/Game";
 
 let config = {
@@ -6,7 +7,7 @@ let config = {
     height: window.innerHeight,*/
     width: 800 ,
     height: 600,
-    scene: [PreloadScene,GameScene],
+    scene: [PreloadScene, MenuScene, GameScene],
     scale:{
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH
