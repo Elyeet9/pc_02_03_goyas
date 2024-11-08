@@ -7,7 +7,7 @@ class MenuScene extends Phaser.Scene {
     }
 
     create() {
-        console.log("Menu loading...");
+        // Background
         this.bgmenu = this.add.sprite(
             this.game.config.width/2, 
             this.game.config.height/2, 
@@ -26,7 +26,9 @@ class MenuScene extends Phaser.Scene {
                 color: '#FF00CF',
                 strokeThickness: 4
             }
-        )
+        );
+
+        // Texts
         this.title.setOrigin(0.5, 0.5);
         this.name = this.add.text(
             this.game.config.width/2, 
@@ -38,10 +40,10 @@ class MenuScene extends Phaser.Scene {
                 color: '#FF00CF',
                 strokeThickness: 4
             }
-        )
+        );
         this.name.setOrigin(0.5, 0.5);
 
-        // Button to go to game scene
+        // Input to GameScene
         this.input.on('pointerdown', this.start, this);
     }
     
